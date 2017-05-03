@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_drawer_sample"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:layout_margin="8dp"
+    tools:context="nivida.com.amulyamica.DrawerSample">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal">
+
+        <AutoCompleteTextView
+            android:inputType="text"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:textColor="@color/colorAccent"
+            android:background="@drawable/cartborder"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="Search Laminate"
+            android:textSize="14sp"
+            android:singleLine="true"
+            android:imeOptions="actionSearch"
+            android:textColorHint="@color/colorAccent"
+            android:id="@+id/Search_Actv"
+            android:layout_margin="5dp"
+            />
+
+        <ImageView
+            android:layout_marginLeft="1dp"
+            android:layout_weight="5"
+            android:layout_margin="5dp"
+            android:visibility="visible"
+            android:id="@+id/image_search_pro"
+            android:src="@drawable/search1"
+            android:layout_width="match_parent"
+            android:background="@drawable/cartborder"
+            android:layout_height="40dp" />
+
+    </LinearLayout>
+
+
+    <!--<LinearLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:gravity="center"-->
+    <!--android:orientation="vertical"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:background="@drawable/grid_border"-->
+    <!--android:layout_margin="10dp"-->
+    <!--&gt;-->
+    <!--<FrameLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <!--<TextView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:drawablePadding="15dp"-->
+    <!--android:gravity="center"-->
+    <!--android:padding="5dp"-->
+    <!--android:text="CART"-->
+    <!--android:id="@+id/cate"-->
+    <!--android:textColor="#fff"-->
+    <!--android:textSize="16sp"-->
+    <!--android:layout_gravity="center"-->
+    <!--/>-->
+
+    <!--</FrameLayout>-->
+    <!--</LinearLayout>-->
+
+
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:text="Laminates can be filter here by Design name or design no. or finish type!"-->
+        <!--android:gravity="center"-->
+        <!--android:textSize="16sp"-->
+        <!--/>-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listview_laminate"
+            android:visibility="visible">
+        </ListView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:visibility="gone"
+            android:id="@+id/layout_nosearch">
+
+            <ImageView
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/no_result"
+                android:padding="15dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/grey_800"
+                android:text="Sorry, no result found"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textSize="14sp"
+                android:textColor="@color/grey_800"
+                android:text="Please check the spelling or try a different search"/>
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="false"
+            android:progressDrawable="@drawable/circular_progressbar"
+            android:id="@+id/progressBar" />
+        <!--android:indeterminateDuration="3000"-->
+        <!--android:indeterminateDrawable="@drawable/circular_progressbar"-->
+    </FrameLayout>
+
+</LinearLayout>

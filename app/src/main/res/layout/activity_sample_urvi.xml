@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<ScrollView android:id="@+id/scrollView1"-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="#3d455b"-->
+    <!--android:layout_alignParentLeft="true"-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android">-->
+
+    <!--<HorizontalScrollView-->
+        <!--android:id="@+id/hscrll1"-->
+        <!--android:layout_width="fill_parent"-->
+        <!--android:layout_height="wrap_content" >-->
+
+<RelativeLayout android:id="@+id/RelativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_gravity="left|start"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#3d455b"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+            <TableLayout
+                android:gravity="left|start"
+
+                android:id="@+id/table_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true" >
+                <!--<TableRow-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:id="@+id/display_row"-->
+                <!--android:layout_marginTop="280dip" />-->
+
+            </TableLayout>
+        </RelativeLayout>
+    <!--</HorizontalScrollView>-->
+<!--</ScrollView>-->

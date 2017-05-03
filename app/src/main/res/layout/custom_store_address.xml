@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_marginTop="5dp"
+              android:background="#fff"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/gray_border"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:id="@+id/layout_name"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:src="@drawable/user"
+                android:layout_weight="9"
+                />
+
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Name"
+                android:gravity="start|center_vertical"
+                android:layout_weight="1"
+                android:layout_gravity="start"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:gravity="start|center_vertical"
+            android:visibility="visible"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="26dp"
+                android:layout_weight="9"
+                android:visibility="visible"
+                android:src="@drawable/shop_new"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Shop"
+                android:gravity="start|center_vertical"
+                android:layout_weight="1"
+                android:layout_gravity="start"
+                android:id="@+id/txtShop"
+                android:visibility="visible"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_marginBottom="2dp"
+            android:gravity="start|center_vertical"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/marker_10011"
+                android:layout_weight="9"
+                android:layout_gravity="top|center"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Address"
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:layout_gravity="start"
+                android:id="@+id/txtAddress"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:id="@+id/layout_mobile"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:src="@drawable/phone_1003"
+                android:layout_weight="9"
+                />
+
+            <TextView
+                android:id="@+id/txtMobile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Mobile No."
+                android:textColor="#2196f3"
+                android:gravity="start|center_vertical"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:id="@+id/layout_email"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_email"
+                android:layout_weight="9"
+                />
+
+            <TextView
+                android:id="@+id/txtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:text="Email ID"
+                android:textColor="#2196f3"
+                android:gravity="start|center_vertical"
+                android:layout_weight="1"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:gravity="start|center_vertical"
+            android:visibility="gone"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_weight="9"
+                android:visibility="invisible"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Address"
+                android:gravity="start|center_vertical"
+                android:layout_weight="1"
+                android:layout_gravity="start"
+                android:id="@+id/txtCity"
+                android:visibility="gone"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:padding="5dp"
+            android:background="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:text="View on Map"
+            android:layout_gravity="center|end"
+            android:layout_margin="5dp"
+            android:id="@+id/txt_viewMap"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enquiry"
+        android:layout_margin="3dp"
+        android:padding="5dp"
+        android:textColor="@color/grey_900"
+        android:textSize="16sp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="40dp"
+           android:layout_margin="3dp"
+            android:id="@+id/edt_firstName"
+            android:backgroundTint="@color/grey_900"
+            android:inputType="textCapWords"
+            android:textColor="@color/grey_900"
+            android:hint="First Name *"
+            android:singleLine="true"
+            android:textColorHint="@color/grey_600"/>
+
+        <EditText
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:backgroundTint="@color/grey_900"
+            android:hint="Last Name *"
+            android:inputType="textCapWords"
+            android:singleLine="true"
+            android:id="@+id/edt_lastName"
+            android:textColor="@color/grey_900"
+            android:textColorHint="@color/grey_600"
+            android:layout_margin="3dp"/>
+
+    </LinearLayout>
+
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/grey_900"
+        android:hint="Email ID *"
+        android:singleLine="true"
+        android:id="@+id/edt_emailID"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/grey_900"
+        android:textColorHint="@color/grey_600"
+        android:layout_margin="3dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:backgroundTint="@color/grey_900"
+        android:hint="Phone No *"
+        android:singleLine="true"
+        android:inputType="number"
+        android:maxLength="10"
+        android:id="@+id/edt_mobileno"
+        android:textColor="@color/grey_900"
+        android:textColorHint="@color/grey_600"
+        android:layout_margin="3dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Subject"
+        android:layout_margin="3dp"
+        android:textSize="18sp"
+        android:id="@+id/subj"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/grey_900"
+        android:hint="Message *"
+        android:id="@+id/edt_message"
+        android:inputType="textMultiLine|textCapWords"
+        android:minLines="4"
+        android:gravity="top|start"
+        android:textColor="@color/grey_900"
+        android:textColorHint="@color/grey_600"
+        android:layout_margin="3dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="right"
+        android:gravity="right"
+        >
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:text="Cancel"
+            android:background="#673AB7"
+            android:textColor="#fff"
+            android:textSize="12sp"
+            android:layout_marginRight="3dp"
+            android:id="@+id/btn_cancel"
+            />
+
+        <Button
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:text="Submit"
+            android:background="#01035A"
+            android:textColor="#fff"
+
+            android:id="@+id/btn_submit"
+            android:textSize="12sp"
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

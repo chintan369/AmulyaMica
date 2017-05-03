@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:fitsSystemWindows="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:context="com.nivida.user.btl.MainPage_drawer">
+
+        <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp"-->
+            <!--android:background="@drawable/black_underline" />-->
+
+        <!--<ScrollView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:fillViewport="false">-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:orientation="horizontal"-->
+                    <!--android:id="@+id/l_strickers"-->
+                    <!--android:visibility="visible"-->
+                    <!--&gt;-->
+
+                    <!--<TextView-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent"-->
+                        <!--android:drawableLeft="@drawable/vertical_line"-->
+                        <!--android:drawablePadding="15dp"-->
+                        <!--android:gravity="left|center"-->
+                        <!--android:padding="5dp"-->
+                        <!--android:text="Current Offers"-->
+                        <!--android:textColor="#000000"-->
+                        <!--android:textSize="16sp" />-->
+                <!--</LinearLayout>-->
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:padding="5dp"
+                    android:orientation="vertical"
+
+                    android:background="@drawable/grid_border">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:drawablePadding="15dp"
+
+                        android:padding="5dp"
+                        android:text="Categories"
+                        android:id="@+id/cate"
+                        android:textColor="#666666"
+                        android:textSize="16sp"
+                        android:layout_gravity="center"
+                        />
+                </LinearLayout>
+
+                <!--<View-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="1dp"-->
+                    <!--android:background="@drawable/black_underline" />-->
+
+                <LinearLayout
+                    android:id="@+id/grid_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="visible"
+                    android:orientation="vertical">
+                    <!--android:id="@+id/gridView1"-->
+                    <!--android:numColumns="auto_fit"-->
+                    <!--android:gravity="center"-->
+                    <!--android:columnWidth="100dp"-->
+                    <!--android:stretchMode="columnWidth"-->
+                    <!--android:layout_width="fill_parent"-->
+                    <!--android:layout_height="fill_parent"-->
+                    <GridView
+                        android:id="@+id/gridView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:padding="5dp"
+                        android:numColumns="3"
+                        android:verticalSpacing="12dp"
+                        android:horizontalSpacing="12dp"
+                        android:stretchMode="columnWidth"
+                        android:gravity="center"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+<!--        android:columnWidth="100dp"-->
+
+        <!--</ScrollView>-->
+    </LinearLayout>
+
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/fab"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="bottom|end"-->
+        <!--android:layout_margin="@dimen/fab_margin"-->
+        <!--android:src="@android:drawable/ic_dialog_email"-->
+        <!--android:visibility="gone" />-->
+
+</android.support.design.widget.CoordinatorLayout>

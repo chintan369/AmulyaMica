@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "93891814901",
+    "firebase_url": "https://amulya-mica.firebaseio.com",
+    "project_id": "amulya-mica",
+    "storage_bucket": "amulya-mica.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:93891814901:android:e9024db79598167d",
+        "android_client_info": {
+          "package_name": "nivida.com.amulyamica"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "93891814901-kjhp5jv2ghf1pgkkeo13k13cshiu96l3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbXdy4229b9D8iB22kzlYfprMRyHhqPvk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

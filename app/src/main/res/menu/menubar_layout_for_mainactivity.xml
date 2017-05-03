@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+
+    >
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/Home"
+            android:icon="@drawable/home"
+            android:title="Home"
+            />
+        <item
+            android:id="@+id/login"
+            android:icon="@drawable/login"
+            android:title="Login" />
+        <item
+            android:id="@+id/e_gallery"
+            android:icon="@drawable/gallery"
+            android:title="Visualizer"
+            />
+
+        <item
+            android:id="@+id/aboutCompany"
+            android:icon="@drawable/aboutc"
+            android:title="Company Profile" />
+        <item
+            android:id="@+id/aboutDirectors"
+            android:icon="@drawable/aboutd"
+            android:title="Board of Directors" />
+        <item
+            android:visible="false"
+            android:id="@+id/categories"
+            android:icon="@drawable/category"
+            android:title="Categories" />
+        <item
+            android:id="@+id/vision"
+            android:icon="@drawable/vision"
+            android:title="Vision" />
+
+        <item
+            android:id="@+id/mission"
+            android:icon="@drawable/mission"
+            android:title="Mission" />
+
+        <item
+            android:id="@+id/newsevent"
+            android:icon="@drawable/newsicon"
+            android:title="News &amp; Event" />
+
+        <item
+            android:id="@+id/certificateawards"
+            android:icon="@drawable/awardicon"
+            android:title="Certificates" />
+
+        <item android:id="@+id/contactus"
+              android:icon="@drawable/contact_us"
+              android:title="Contact Us" />
+        <item
+            android:id="@+id/csrActivity"
+            android:icon="@drawable/recent"
+            android:visible="false"
+            android:title="CSR Activity" />
+        <item
+            android:id="@+id/recentActivity"
+            android:icon="@drawable/recent"
+            android:visible="false"
+            android:title="Recent Activity" />
+        <item
+            android:id="@+id/logout"
+            android:icon="@drawable/logout"
+            android:title="Logout"
+            android:visible="false"
+            />
+
+    </group>
+
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/share"
+                android:title="Share" />
+
+        </menu>
+    </item>
+
+</menu>
+    <!--<?xml version="1.0" encoding="utf-8"?>-->
+    <!--<menu xmlns:android="http://schemas.android.com/apk/res/android">-->
+
+    <!--<group android:checkableBehavior="single">-->
+    <!--<item-->
+    <!--android:id="@+id/nav_camera"-->
+    <!--android:icon="@drawable/category"-->
+    <!--android:title="Import" />-->
+    <!--<item-->
+    <!--android:id="@+id/nav_gallery"-->
+    <!--android:icon="@drawable/category"-->
+    <!--android:title="Gallery" />-->
+    <!--<item-->
+    <!--android:id="@+id/nav_slideshow"-->
+    <!--android:icon="@drawable/category"-->
+    <!--android:title="Slideshow" />-->
+    <!--<item-->
+    <!--android:id="@+id/nav_manage"-->
+    <!--android:icon="@drawable/category"-->
+    <!--android:title="Tools" />-->
+    <!--</group>-->
+
+    <!--<item android:title="Communicate">-->
+    <!--<menu>-->
+    <!--<item-->
+    <!--android:id="@+id/nav_share"-->
+    <!--android:icon="@drawable/category"-->
+    <!--android:title="Share" />-->
+    <!--<item-->
+    <!--android:id="@+id/nav_send"-->
+    <!--android:icon="@drawable/category"-->
+    <!--android:title="Send" />-->
+    <!--</menu>-->
+    <!--</item>-->
+
+    <!--</menu>-->

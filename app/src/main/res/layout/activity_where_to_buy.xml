@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_where_to_buy"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="6dp"
+    android:background="#fff"
+    android:focusableInTouchMode="true"
+    tools:context="nivida.com.amulyamica.WhereToBuy">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:padding="5dp"
+        android:background="@drawable/grid_border"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="15dp"
+            android:gravity="left"
+
+            android:text="Store "
+            android:id="@+id/cate"
+            android:textColor="#666666"
+            android:textSize="16sp"
+            android:layout_gravity="left"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="15dp"
+            android:gravity="left"
+
+            android:text="Locator"
+            android:textColor="#e77716"
+            android:textSize="16sp"
+            android:layout_gravity="left"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_margin="3dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="State :"
+                android:layout_weight="3"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                />
+            <Spinner
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/spinner_wheretobuy"
+                android:hint="Select State"
+                android:textColor="#fff"
+                android:textColorHint="#99ffffff"
+                android:paddingLeft="10dp"
+                android:id="@+id/spn_state"
+                android:gravity="center_vertical"
+                >
+
+
+            </Spinner>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_margin="3dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="City :"
+                android:layout_weight="3"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                />
+            <Spinner
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/spinner_wheretobuy"
+                android:hint="Select State"
+                android:textColor="#fff"
+                android:textColorHint="#99ffffff"
+                android:paddingLeft="10dp"
+                android:id="@+id/spn_city"
+                android:gravity="center_vertical"
+                >
+
+
+            </Spinner>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_margin="3dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Area :"
+                android:layout_weight="3"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                />
+            <Spinner
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/spinner_wheretobuy"
+                android:hint="Select State"
+                android:textColor="#fff"
+                android:textColorHint="#99ffffff"
+                android:paddingLeft="10dp"
+                android:id="@+id/spn_area"
+                android:gravity="center_vertical"
+                >
+
+
+            </Spinner>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_margin="3dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Store :"
+                android:layout_weight="3"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                />
+            <Spinner
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@drawable/spinner_wheretobuy"
+                android:hint="Select Store"
+                android:textColor="#fff"
+                android:textColorHint="#99ffffff"
+                android:paddingLeft="10dp"
+                android:id="@+id/spn_store"
+                android:gravity="center_vertical"
+                >
+
+
+            </Spinner>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:layout_margin="3dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Pincode :"
+                android:layout_weight="3"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                />
+            <!--<Spinner-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:background="@drawable/spinner_wheretobuy"-->
+                <!--android:hint="Select State"-->
+                <!--android:textColor="#fff"-->
+                <!--android:textColorHint="#99ffffff"-->
+                <!--android:paddingLeft="10dp"-->
+                <!--android:id="@+id/spn_area"-->
+                <!--android:gravity="center_vertical"-->
+                <!--&gt;-->
+
+
+            <!--</Spinner>-->
+            <EditText
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:hint="Pincode"
+                android:textSize="14sp"
+                android:textColorHint="#999"
+                android:textColor="#000"
+                android:id="@+id/pincode_edit"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:inputType="number"
+                android:maxLength="6"
+                android:background="@drawable/edittext_layout_address"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        >
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+        android:background="@drawable/submit_layout"
+            android:layout_gravity="top|center|center_horizontal"
+            android:gravity="top|center|center_horizontal"
+            android:orientation="horizontal"
+            android:id="@+id/checkout"
+            >
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/frameorder"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Submit"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center"
+                    android:textColor="#fff"
+                    android:textSize="16sp"
+                    />
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/arrow3"
+                    android:layout_gravity="end|right"
+                    />
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="1dp"
+
+        >
+
+        <ListView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/listview_stores"
+            android:visibility="visible">
+        </ListView>
+
+        <ProgressBar
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="false"
+            android:progressDrawable="@drawable/circular_progressbar"
+            android:id="@+id/progressBar" />
+        <!--android:indeterminateDuration="3000"-->
+        <!--android:indeterminateDrawable="@drawable/circular_progressbar"-->
+    </FrameLayout>
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical"-->
+        <!--android:padding="10dp"-->
+        <!--android:layout_marginTop="7dp"-->
+        <!--android:background="@drawable/cartborder"-->
+        <!--android:visibility="gone"-->
+        <!--android:id="@+id/submit"-->
+        <!--&gt;-->
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:text="SB/15-17-19, Punjan Complex, Makarpura Rd, Near Over Bridge, Pratap Nagar, Manjalpur, Vadodara, Gujarat 390009"-->
+            <!--/>-->
+    <!--</LinearLayout>-->
+</LinearLayout>
