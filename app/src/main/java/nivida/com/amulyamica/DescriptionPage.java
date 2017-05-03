@@ -629,7 +629,7 @@ public class DescriptionPage extends AppCompatActivity implements Serializable {
             Intent intent = new Intent();
             intent.setAction(Intent.ACTION_SEND_MULTIPLE);
             intent.putExtra(Intent.EXTRA_SUBJECT, ""+laminate_name);
-            intent.putExtra(Intent.EXTRA_TEXT, "Laminate Name : "+laminate_name+" \nItem Code : "+design_code+" \nFinish Type : "+finish_type);
+            intent.putExtra(Intent.EXTRA_TEXT, "Laminate Name : "+laminate_name+" \nItem Code : "+bean_description.get(0).getD_designNo()+" \nFinish Type : "+finish_type);
             intent.setType("image/*");  //This example is sharing jpeg images.
 
             ArrayList<Uri> files = new ArrayList<Uri>();
