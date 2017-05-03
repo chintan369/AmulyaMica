@@ -103,6 +103,7 @@
                     android:layout_gravity="right"
                     android:gravity="right|center|center_vertical"
                     android:padding="3dp"
+                    android:visibility="gone"
                     android:src="@drawable/heart_new"
                     />
             </LinearLayout>

@@ -1,17 +1,24 @@
 package nivida.com.amulyamica;
 
+import android.*;
+import android.Manifest;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.media.MediaScannerConnection;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.RequiresApi;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -56,6 +63,7 @@ import static android.content.Intent.ACTION_VIEW;
 import static nivida.com.amulyamica.Globals.IMAGELINK;
 
 public class DescriptionPage extends AppCompatActivity implements Serializable {
+    private static final int MY_PERMISSION_WR_FILES = 3;
     ImageView desc_image;
     TextView deccription_text,
             sizetext,laminatenamedescp,thickness,txt_finish,txt_itemcode,edt_count, txt_designName,txt_laminateType;
@@ -255,33 +263,35 @@ public class DescriptionPage extends AppCompatActivity implements Serializable {
             @Override
             public void onClick(View view) {
                 //set_Image();
-                laminate_path = IMAGELINK+bean_description.get(0).getD_laminateImage();
+                laminate_path = IMAGELINK+finishImage.get(spn_laminateType.getSelectedItemPosition());
                 Log.e("Path",""+laminate_path);
                 laminate_name = bean_description.get(0).getD_laminateName();
                 Log.e("name",""+laminate_name);
                 laminate_id=bean_description.get(0).getD_laminate_id();
                 Log.e("id",""+laminate_id);
-                finish_type=bean_description.get(0).getD_finishTypeName().toString();
+                finish_type=spn_laminateType.getSelectedItem().toString();
                 Log.e("finish_type",""+finish_type);
-                design_name=bean_description.get(0).getD_designName().toString();
+                design_name= bean_description.get(0).getD_designName();
                 Log.e("design_name",""+design_name);
        /* design_no=bean_description.get(0).getD_designNo();
         laminate_type_name=bean_description.get(0).getD_finishTypeName();*/
-                design_code=bean_description.get(0).getD_designNo();
+                design_code=bean_description.get(0).getD_designNo()+"_"+spn_laminateType.getSelectedItem().toString()+"_"+laminateTypeID.get(spn_laminateType.getSelectedItemPosition());
                 Log.e("design_code",""+design_code);
-                fetch_image_for_share(bean_description.get(0).getD_laminateImage());
+                fetch_image_for_share(finishImage.get(spn_laminateType.getSelectedItemPosition()));
                 Log.e("URVI","urvi");
             }
         });
 
         save.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.M)
             @Override
             public void onClick(View view) {
 
-                Bitmap bitmap=desc_image.getDrawingCache();
+                desc_image.setDrawingCacheEnabled(true);
+                Bitmap bitmap=desc_image.getDrawingCache(true).copy(Bitmap.Config.RGB_565, false);
+                desc_image.setDrawingCacheEnabled(false);
+                desc_image.destroyDrawingCache();
                 saveImage(bitmap);
-
-                Log.e("URVI@@","222");
             }
         });
 
@@ -620,7 +630,7 @@ public class DescriptionPage extends AppCompatActivity implements Serializable {
             intent.setAction(Intent.ACTION_SEND_MULTIPLE);
             intent.putExtra(Intent.EXTRA_SUBJECT, ""+laminate_name);
             intent.putExtra(Intent.EXTRA_TEXT, "Laminate Name : "+laminate_name+" \nItem Code : "+design_code+" \nFinish Type : "+finish_type);
-            intent.setType("image/jpeg");  //This example is sharing jpeg images.
+            intent.setType("image/*");  //This example is sharing jpeg images.
 
             ArrayList<Uri> files = new ArrayList<Uri>();
 
@@ -633,14 +643,6 @@ public class DescriptionPage extends AppCompatActivity implements Serializable {
             intent.putParcelableArrayListExtra(Intent.EXTRA_STREAM, files);
             intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
             startActivity(intent);
-
-
-            // Displaying downloaded image into image view
-            // Reading image path from sdcard
-            String imagePath = Environment.getExternalStorageDirectory().toString() + "/downloadedfile.jpg";
-            // pDialog.dismiss();
-            // setting downloaded into image view
-            // my_image.setImageDrawable(Drawable.createFromPath(imagePath));
         }
 
         /*public void execute(String s) {
@@ -1360,6 +1362,7 @@ public class DescriptionPage extends AppCompatActivity implements Serializable {
         mActionBar.setDisplayShowCustomEnabled(true);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     private void saveImage(Bitmap bitmap){
         String root = Environment.getExternalStorageDirectory().toString();
         File myDir = new File(root + "/AmulyaMica");
@@ -1367,18 +1370,37 @@ public class DescriptionPage extends AppCompatActivity implements Serializable {
         Random generator = new Random();
         int n = 10000;
         n = generator.nextInt(n);
-        String fname = "Image-" + n + ".jpg";
+        String fname = "Image-" + n + ".png";
         File file = new File(myDir, fname);
         Log.i("File", "" + file);
         if (file.exists())
             file.delete();
         try {
-            FileOutputStream out = new FileOutputStream(file);
-            bitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
-            Globals.CustomToast(DescriptionPage.this, "Saved Successfully", getLayoutInflater());
-            out.flush();
-            out.close();
+            if (ContextCompat.checkSelfPermission(DescriptionPage.this,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                    != PackageManager.PERMISSION_GRANTED) {
+
+                // Should we show an explanation?
+                if (ActivityCompat.shouldShowRequestPermissionRationale(DescriptionPage.this,
+                        Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+
+
+
+                } else {
+
+                    ActivityCompat.requestPermissions(DescriptionPage.this,
+                            new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                            MY_PERMISSION_WR_FILES);
+                }
+            }
+            else {
+                FileOutputStream out = new FileOutputStream(file);
+                bitmap.compress(Bitmap.CompressFormat.PNG, 90, out);
+                Globals.CustomToast(DescriptionPage.this, "Saved Successfully", getLayoutInflater());
+                out.flush();
+            }
         } catch (Exception e) {
+            Log.e("Exception",e.getMessage());
             Globals.CustomToast(DescriptionPage.this, "Failed To Save Image", getLayoutInflater());
             e.printStackTrace();
         }
@@ -1397,6 +1419,30 @@ public class DescriptionPage extends AppCompatActivity implements Serializable {
                     }
 
                 });
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    @Override
+    public void onRequestPermissionsResult(int requestCode,
+                                           String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case MY_PERMISSION_WR_FILES: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    desc_image.setDrawingCacheEnabled(true);
+                    Bitmap bitmap=desc_image.getDrawingCache(true).copy(Bitmap.Config.RGB_565, false);
+                    desc_image.setDrawingCacheEnabled(false);
+                    desc_image.destroyDrawingCache();
+                    saveImage(bitmap);
+
+                } else {
+                    Globals.CustomToast(DescriptionPage.this, "Failed To Save Image", getLayoutInflater());
+                }
+
+                break;
+            }
+        }
     }
 
     public void downloadPdfContent(String pdf_path){
