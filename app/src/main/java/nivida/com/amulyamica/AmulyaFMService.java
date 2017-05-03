@@ -18,6 +18,7 @@ import com.google.firebase.messaging.RemoteMessage;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Random;
 
 
 /**
@@ -48,13 +49,15 @@ public class AmulyaFMService extends FirebaseMessagingService {
 
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void notifyUser(String title, String message){
+        Random random=new Random();
+        int uniqueID=random.nextInt(2);
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         Intent intent = new Intent(this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         intent.putExtra("fromNotification",true);
         intent.putExtra("message",message);
         intent.putExtra("title",title);
-        PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
+        PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         Bitmap icon = BitmapFactory.decodeResource(getResources(),
                 R.drawable.icon_amulya_mica);
         Notification mNotification = new Notification.Builder(this)
