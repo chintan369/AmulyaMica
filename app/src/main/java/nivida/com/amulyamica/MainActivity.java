@@ -107,6 +107,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Intent intent=getIntent();
+
+        if(intent.getBooleanExtra("fromNotification",false)){
+            android.support.v7.app.AlertDialog.Builder builder=new android.support.v7.app.AlertDialog.Builder(this);
+            builder.setTitle(intent.getStringExtra("title"));
+            builder.setMessage(intent.getStringExtra("message"));
+            builder.setPositiveButton("CLOSE",null);
+
+            android.support.v7.app.AlertDialog dialog=builder.create();
+            dialog.show();
+
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        }
         fetchid();
         setActionBar();
         getWindow().setSoftInputMode(
@@ -157,6 +170,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         customGridAdapter=new CustomGridAdapter(MainActivity.this, bean_categoriesList , MainActivity.this,array_image);
         gridView.setAdapter(customGridAdapter);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     private void setActionBar() {

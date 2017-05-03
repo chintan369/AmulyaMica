@@ -49,7 +49,11 @@ public class AmulyaFMService extends FirebaseMessagingService {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void notifyUser(String title, String message){
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        Intent intent = new Intent(this, Notification.class);
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.putExtra("fromNotification",true);
+        intent.putExtra("message",message);
+        intent.putExtra("title",title);
         PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, 0);
         Bitmap icon = BitmapFactory.decodeResource(getResources(),
                 R.drawable.icon_amulya_mica);
@@ -59,7 +63,7 @@ public class AmulyaFMService extends FirebaseMessagingService {
                 .setContentTitle(title)
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setPriority(Notification.PRIORITY_HIGH)
-                //.setContentText(message)
+                .setContentText(message)
                 .setLargeIcon(icon)
                 .setSmallIcon(R.drawable.icon_amulya_mica)
                 .setContentIntent(pIntent)
