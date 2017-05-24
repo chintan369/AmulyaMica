@@ -1,9 +1,16 @@
 package nivida.com.amulyamica;
 
+import android.*;
+import android.Manifest;
+import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.view.GravityCompat;
@@ -35,8 +42,10 @@ import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.List;
 
 import static android.Manifest.permission.CALL_PHONE;
+import static android.content.pm.PackageManager.PERMISSION_GRANTED;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     ActionBarDrawerToggle mDrawerToggle;
@@ -55,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     //ArrayList<Bean_Slider> slider_arra =new ArrayList<Bean_Slider>();
     ViewPager customviewpager;
     GridView gridView1, gridView_new;
-    String[] perms = { android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.READ_EXTERNAL_STORAGE,CALL_PHONE };
+    String[] perms = { android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.READ_EXTERNAL_STORAGE,CALL_PHONE, Manifest.permission.RECEIVE_BOOT_COMPLETED };
     ImageView image_drawer;
     ImageView img_drwaer_header;
     NavigationView navigationView;
@@ -108,6 +117,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Intent intent=getIntent();
+
+        isPermissionRequestRequired(MainActivity.this, perms, code);
+
+        /*String manufacturer = "xiaomi";
+        if(manufacturer.equalsIgnoreCase(android.os.Build.MANUFACTURER)) {
+            //this will open auto start screen where user can enable permission for your app
+            Intent intentMi = new Intent();
+            intentMi.setComponent(new ComponentName("com.miui.securitycenter", "com.miui.permcenter.autostart.AutoStartManagementActivity"));
+            startActivity(intentMi);
+        }*/
 
         if(intent.getBooleanExtra("fromNotification",false)){
             android.support.v7.app.AlertDialog.Builder builder=new android.support.v7.app.AlertDialog.Builder(this);
@@ -171,6 +190,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         gridView.setAdapter(customGridAdapter);
 
     }
+
+    public static boolean isMarshmallowPlusDevice() {
+
+        return Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1;
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    public static boolean isPermissionRequestRequired(Activity activity, @NonNull String[] permissions, int requestCode) {
+        if (isMarshmallowPlusDevice() && permissions.length > 0) {
+            List<String> newPermissionList = new ArrayList<>();
+            for (String permission : permissions) {
+                if (PERMISSION_GRANTED != activity.checkSelfPermission(permission)) {
+                    newPermissionList.add(permission);
+
+                }
+            }
+            if (newPermissionList.size() > 0) {
+                activity.requestPermissions(newPermissionList.toArray(new String[newPermissionList.size()]), requestCode);
+                return true;
+            }
+
+
+        }
+
+        return false;
+    }
+
 
     @Override
     protected void onResume() {
@@ -343,7 +389,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 if (result_1==null || result_1.isEmpty()) {
                     Log.e("dddd","dddddd");
-                    Globals.CustomToast(MainActivity.this, "SERVER ERRER", getLayoutInflater());
+                    Globals.CustomToast(MainActivity.this, "SERVER ERROR", getLayoutInflater());
                     loadingView.dismiss();
 
                 } else {
@@ -413,6 +459,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Intent i = new Intent(MainActivity.this, VirtualRoomActivity.class);
             i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(i);
+        }
+        else if(id==R.id.notification){
+            Intent notificationI=new Intent(getApplicationContext(),AmulyaNotificationActivity.class);
+            notificationI.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(notificationI);
         }
         else if(id==R.id.aboutCompany)
         {

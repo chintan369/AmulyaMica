@@ -137,7 +137,7 @@ public class CustomLaminateListAdapter extends BaseAdapter {
 
 
 
-        laminateImg.setOnClickListener(new View.OnClickListener() {
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 prefs = new AppPrefs(context);

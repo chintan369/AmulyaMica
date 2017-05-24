@@ -514,7 +514,7 @@ public class WhereToBuy extends AppCompatActivity implements Serializable {
                         || (result_1.equalsIgnoreCase(""))) {
                     /*Globals.CustomToast(Business_Registration.this, "SERVER ERRER",
                             Toast.LENGTH_SHORT).show();*/
-                    Globals.CustomToast(WhereToBuy.this, "SERVER ERRER", getLayoutInflater());
+                    Globals.CustomToast(WhereToBuy.this, "SERVER ERROR", getLayoutInflater());
                     loadingView.dismiss();
 
                 } else {
@@ -629,7 +629,7 @@ public class WhereToBuy extends AppCompatActivity implements Serializable {
                         || (result_1.equalsIgnoreCase(""))) {
                     /*Globals.CustomToast(Business_Registration.this, "SERVER ERRER",
                             Toast.LENGTH_SHORT).show();*/
-                    Globals.CustomToast(WhereToBuy.this, "SERVER ERRER", getLayoutInflater());
+                    Globals.CustomToast(WhereToBuy.this, "SERVER ERROR", getLayoutInflater());
                     loadingView.dismiss();
 
                 } else {

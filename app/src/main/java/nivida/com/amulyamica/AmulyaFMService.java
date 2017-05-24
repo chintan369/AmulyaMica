@@ -10,6 +10,7 @@ import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -52,11 +53,17 @@ public class AmulyaFMService extends FirebaseMessagingService {
         Random random=new Random();
         int uniqueID=random.nextInt(2);
         Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        Intent intent = new Intent(this, SplashScreen.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        Bundle bundle=new Bundle();
+        bundle.putBoolean("fromNotification",true);
+        bundle.putString("message",message);
+        bundle.putString("title",title);
         intent.putExtra("fromNotification",true);
         intent.putExtra("message",message);
         intent.putExtra("title",title);
+        intent.putExtras(bundle);
+
         PendingIntent pIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
         Bitmap icon = BitmapFactory.decodeResource(getResources(),
                 R.drawable.icon_amulya_mica);

@@ -388,7 +388,7 @@ public class Login extends AppCompatActivity {
 
                 if (result_1.equalsIgnoreCase("")
                         || (result_1.equalsIgnoreCase(""))) {
-                    Globals.CustomToast(Login.this, "SERVER ERRER", getLayoutInflater());
+                    Globals.CustomToast(Login.this, "SERVER ERROR", getLayoutInflater());
                     loadingView.dismiss();
 
                 } else {

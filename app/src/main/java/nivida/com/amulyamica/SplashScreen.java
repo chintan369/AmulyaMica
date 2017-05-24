@@ -9,11 +9,21 @@ import android.util.Log;
 public class SplashScreen extends AppCompatActivity {
     AppPrefs prefs;
 
+    boolean fromNotification=false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         prefs=new AppPrefs(getApplicationContext());
+
+        final Intent intent=getIntent();
+        final Bundle bundle=intent.getExtras();
+        if(bundle!=null){
+            fromNotification=bundle.getBoolean("fromNotification");
+        }
+
+
+
         new CountDownTimer(2500, 1300) {
 
             @Override
@@ -36,6 +46,13 @@ public class SplashScreen extends AppCompatActivity {
                     Intent iGo = new Intent(SplashScreen.this,
                             MainActivity.class);
                     iGo.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    if(fromNotification){
+                        iGo.putExtra("fromNotification",true);
+                        iGo.putExtra("title",bundle.getString("title"));
+                        iGo.putExtra("message",bundle.getString("message"));
+                    }
+
+
                     startActivity(iGo);
                     SplashScreen.this.finish();
                 }

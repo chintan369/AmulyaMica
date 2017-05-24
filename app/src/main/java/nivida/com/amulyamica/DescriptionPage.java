@@ -302,7 +302,8 @@ public class DescriptionPage extends AppCompatActivity implements Serializable {
                 if(bean_description.size()>0){
                     Intent intent=new Intent(ACTION_VIEW);
                     intent.setData(Uri.parse(IMAGELINK+finishPDF.get(spn_laminateType.getSelectedItemPosition())));
-                    intent.setPackage("com.android.chrome");
+                    intent.setType("application/pdf");
+                    //intent.setPackage("com.android.chrome");
                     try{
                         startActivity(intent);
                     }
@@ -715,7 +716,7 @@ public class DescriptionPage extends AppCompatActivity implements Serializable {
                 if (result_1.equalsIgnoreCase("")
                         || (result_1.equalsIgnoreCase(""))) {
                     Log.e("dddd","dddddd");
-                    Globals.CustomToast(DescriptionPage.this, "SERVER ERRER", getLayoutInflater());
+                    Globals.CustomToast(DescriptionPage.this, "SERVER ERROR", getLayoutInflater());
                     loadingView.dismiss();
 
                 } else {
@@ -797,7 +798,7 @@ public class DescriptionPage extends AppCompatActivity implements Serializable {
                             laminateTypeID.add(finishTypeObj.getString("laminate_id"));
                             finishName.add(finishTypeObj.getString("finish_name"));
                             finishImage.add(finishTypeObj.getString("laminate_image"));
-                            finishPDF.add(finishTypeObj.getString("laminate_pdf").replace("null",""));
+                            finishPDF.add(finishTypeObj.getString("laminate_pdf").replace("null","").replace("NULL",""));
 
                         }
 

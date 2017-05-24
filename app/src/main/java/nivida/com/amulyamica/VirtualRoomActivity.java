@@ -2,9 +2,11 @@ package nivida.com.amulyamica;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.support.customtabs.CustomTabsIntent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -69,8 +71,16 @@ public class VirtualRoomActivity extends AppCompatActivity {
 
         });
 
-        //web_eGallery.loadUrl("http://app.nivida.in/amulya_visualizer/");
-        web_eGallery.loadDataWithBaseURL("http://app.nivida.in/amulya_visualizer/",null,"text/html","UTF-8",null);
+        web_eGallery.loadUrl("http://app.nivida.in/amulya_visualizer/");
+
+        String url = "http://app.nivida.in/amulya_visualizer/";
+        CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+        //builder.enableUrlBarHiding();
+        CustomTabsIntent customTabsIntent = builder.build();
+        customTabsIntent.launchUrl(this, Uri.parse(url));
+
+
+        //web_eGallery.loadDataWithBaseURL("http://app.nivida.in/amulya_visualizer/",null,"text/html","UTF-8",null);
     }
 
     private void setActionBar() {
@@ -109,8 +119,8 @@ public class VirtualRoomActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId()==R.id.menu_refresh){
-            //web_eGallery.loadUrl("http://app.nivida.in/amulya_visualizer/");
-            web_eGallery.loadDataWithBaseURL("http://app.nivida.in/amulya_visualizer/",null,"text/html","UTF-8",null);
+            web_eGallery.loadUrl("http://app.nivida.in/amulya_visualizer/");
+            //web_eGallery.loadDataWithBaseURL("http://app.nivida.in/amulya_visualizer/",null,"text/html","UTF-8",null);
         }
 
         return true;
@@ -129,23 +139,23 @@ public class VirtualRoomActivity extends AppCompatActivity {
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
             super.onPageStarted(view, url, favicon);
             dialog.show();
+            web_eGallery.zoomOut();
+            web_eGallery.zoomOut();
             Log.e(" page url",url);
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
         @Override
         public void onPageFinished(WebView view, final String url) {
             Log.e("page url",url);
             dialog.dismiss();
+            //web_eGallery.zoomOut();
+            //web_eGallery.zoomOut();
         }
     }
 
     @Override
     public void onBackPressed() {
-        if(web_eGallery.canGoBack()){
-            web_eGallery.goBack();
-        }
-        else {
             finish();
-        }
     }
 }
